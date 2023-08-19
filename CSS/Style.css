@@ -1,3 +1,11 @@
 canvas{
     background-color: grey;
 }
+.Game-Over{
+    display: none;
+    position: absolute;
+    top: 25%;
+    left: 8%;
+    font-size: 24px;
+    color: red;
+}

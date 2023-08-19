@@ -17,10 +17,10 @@ function displayLine() {
 const car = new Car(105, 400, 70, 100);
 document.addEventListener("keydown", (event) => {
   if (event.code === "ArrowLeft") {
-    car.moveLeft(ctx);
+    car.moveLeft();
   }
   if (event.code === "ArrowRight") {
-    car.moveRight(ctx);
+    car.moveRight();
   }
 });
 
@@ -37,20 +37,26 @@ function createObstacle() {
 }
 setInterval(createObstacle, 2000);
 
+let animationID;
 function displayObstacle() {
   for (let i = 0; i < obstaclesArr.length; i++) {
+    let gameOver = false;
     obstaclesArr[i].drawObstacle();
     obstaclesArr[i].moveObstacle();
-    if (obstaclesArr[i].checkCollision(car)) {
-      break;
-    }
   }
-}
+};
 
 function start() {
   displayLine();
   displayObstacle();
   car.drawCar();
-  requestAnimationFrame(start);
+  for (let i = 0; i < obstaclesArr.length; i++) {
+    if (obstaclesArr[i].checkCollision(car)) {
+      document.getElementById("gameOver").style.display = "block";
+      cancelAnimationFrame(animationID);
+      return;
+    }
+  }
+  animationID = requestAnimationFrame(start);
 }
 start();
