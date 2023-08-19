@@ -49,7 +49,6 @@ function displayObstacle() {
 
 function start() {
   displayLine();
-  displayLine();
   displayObstacle();
   car.drawCar();
   requestAnimationFrame(start);
