@@ -43,10 +43,19 @@ function displayObstacle() {
     let gameOver = false;
     obstaclesArr[i].drawObstacle();
     obstaclesArr[i].moveObstacle();
+    
+    if(obstaclesArr[i].y>canvas.height){
+        obstaclesArr.splice(i,1);
+        score.updateScore();
+    }
   }
 };
 
+const score = new Score(10, 10, 10, 10,"Score: 0");
+
 function start() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  score.drawScore();
   displayLine();
   displayObstacle();
   car.drawCar();
