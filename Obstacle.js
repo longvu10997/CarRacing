@@ -24,7 +24,7 @@ class Obstacle {
   checkCollision(car) {
     const collisionMargin = 10;
     if (
-      this.x < car.x + car.width - collisionMargin&&
+      this.x < car.x + car.width - collisionMargin &&
       this.x + this.width - collisionMargin > car.x &&
       this.y < car.y + car.height - collisionMargin &&
       this.y + this.height - collisionMargin > car.y
