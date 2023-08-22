@@ -17,17 +17,17 @@ class Car {
     this.ctx.drawImage(image, this.x, this.y, this.width, this.height);
   }
   moveLeft() {
-    this.ctx.clearRect(this.x, this.y,this.width, this.height);
-    if(this.x >=0){
-        this.x -= 10;
-        this.drawCar();
+    this.ctx.clearRect(this.x, this.y, this.width, this.height);
+    if (this.x >= 0) {
+      this.x -= 10;
+      this.drawCar();
     }
   }
   moveRight() {
-    this.ctx.clearRect(this.x, this.y,this.width, this.height);
-    if(this.x + this.width <= this.canvas.width){
-        this.x += 10;
-        this.drawCar();
+    this.ctx.clearRect(this.x, this.y, this.width, this.height);
+    if (this.x + this.width <= this.canvas.width) {
+      this.x += 10;
+      this.drawCar();
     }
   }
 }
